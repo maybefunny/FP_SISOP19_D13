@@ -153,7 +153,7 @@ void* play_music(void *arg){
 
         /* decode and play */
         while(!finish){
-            sleep(0.000001);
+            printf(" \b\b\b\b\b");
             if(finish){
                 break;
             }
