@@ -150,13 +150,18 @@ void move_mp3_to(char* path){
                         if(ext_match(buf, ".mp3")){
                             //copy to root
                             printf("%s\n", buf);
-                            strcpy(playlist[idx++], p->d_name);
+							if(!strcmp(path, dirpath)){
+								strcpy(playlist[idx++], "p->d_nameALIAS_NAMAYANGSALAH");
+							}else{
+                            	strcpy(playlist[idx++], p->d_name);
+							}
                             char tpath[1000];
                             strcpy(tpath, dirpath);
                             strcat(tpath, "/");
                             strcat(tpath, p->d_name);
-                            printf("%s\n",tpath);
-                            copy_file(tpath, buf, 0);
+                            if(copy_file(tpath, buf, 0) == 17){
+								strcpy(playlist[idx-1], "p->d_nameALIAS_NAMAYANGSALAH");
+							}
                         }
                     }
                 }
